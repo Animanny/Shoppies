@@ -93,7 +93,7 @@ const SearchField = styled.input`
   border-radius: 20px;
   height: 50px;
   width: 500px;
-  font-size: 35px;
+  font-size: 25px;
   padding-left: 10px;
   background-color: #b48cff;
   color: white;
@@ -131,28 +131,30 @@ const Home = () => {
   const [searchResults, setSearchResults] = useState([])
   const [nominations, setNominations] = useState(() => {
     let localNoms =
-     typeof window !== 'undefined' ? window.localStorage.getItem("noms") : null
+      typeof window !== "undefined" ? window.localStorage.getItem("noms") : null
     return localNoms !== null ? JSON.parse(localNoms) : []
   })
 
   const searchHandler = () => {
     let searchTerm = document.querySelector("#movieSearchField").value
-    console.log(searchTerm)
-    apiCall(searchTerm).then(searchResults => {
-      if (searchResults != null) {
-        setSearchResults(searchResults.Search)
-      }
-    })
+    if (searchTerm !== "") {
+      apiCall(searchTerm).then(searchResults => {
+        if (searchResults != null) {
+          setSearchResults(searchResults.Search)
+        }
+      })
+    } else {
+      setSearchResults([])
+    }
   }
 
   const apiCall = searchTerm => {
-    //const baseApiURL = new URL("http://www.omdbapi.com/?i=tt3896198&apikey=653a14be&")
-    const baseApiURL = new URL("http://www.omdbapi.com/")
+    const baseApiURL = new URL("https://www.omdbapi.com/")
     baseApiURL.search = new URLSearchParams({
       i: "tt3896198",
       apikey: "653a14be",
       type: "movie",
-      s: searchTerm,
+      s: searchTerm.trim(),
     })
 
     const searchResult = fetch(baseApiURL)
@@ -177,7 +179,6 @@ const Home = () => {
 
   let renderedSearchResults = searchResults => {
     console.log(searchResults)
-
     if (searchResults != null) {
       return (
         <>
@@ -191,7 +192,7 @@ const Home = () => {
         </>
       )
     } else {
-      return <NoMovies>Could not find any movies</NoMovies>
+      return <NoMovies>Couldn't find that movie 😞</NoMovies>
     }
   }
 
@@ -249,9 +250,8 @@ const Home = () => {
           <NomHeader>
             <SectionHeader>Nominations</SectionHeader>
             {nominations.length >= 2 && (
-              <ClearAllButton onClick={clearNoms}>Clear All</ClearAllButton>
+              <ClearAllButton onClick={clearNoms}>Clear</ClearAllButton>
             )}
-            {nominations.length == 5 && <SubmitNoms>Submit</SubmitNoms>}
           </NomHeader>
           <NomResults id="nomResults">
             {renderNominations(nominations)}
