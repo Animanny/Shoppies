@@ -40,7 +40,7 @@ const SearchResults = styled.div`
   height: 500px;
   margin-top: 25px;
   padding-top: 25px;
-  padding-left:25px;
+  padding-left: 25px;
   display: flex;
   overflow-x: auto;
   white-space: normal;
@@ -55,7 +55,7 @@ const NomsBox = styled.div`
 `
 
 const NomHeader = styled.div`
-  display:flex;
+  display: flex;
 `
 
 const NomResults = styled.div`
@@ -64,28 +64,27 @@ const NomResults = styled.div`
   overflow-y: auto;
   white-space: normal;
   background-color: #eeeeee;
-
 `
 
 const ClearAllButton = styled.button`
   background-color: #b48cff;
-  border-radius : 5px;
+  border-radius: 5px;
   color: white;
   border: none;
   width: 90%;
-  margin-left:5%;
-  margin-top: 21.440px;
+  margin-left: 5%;
+  margin-top: 21.44px;
   height: 37px;
 `
 
 const SubmitNoms = styled.button`
   background-color: #d9a22d;
-  border-radius : 5px;
+  border-radius: 5px;
   color: white;
   border: none;
   width: 90%;
-  margin-left:5%;
-  margin-top: 21.440px;
+  margin-left: 5%;
+  margin-top: 21.44px;
   height: 37px;
 `
 
@@ -131,7 +130,8 @@ const SectionHeader = styled.h1`
 const Home = () => {
   const [searchResults, setSearchResults] = useState([])
   const [nominations, setNominations] = useState(() => {
-    let localNoms = window.localStorage.getItem("noms")
+    let localNoms =
+     typeof window !== 'undefined' ? window.localStorage.getItem("noms") : null
     return localNoms !== null ? JSON.parse(localNoms) : []
   })
 
@@ -247,13 +247,11 @@ const Home = () => {
         </SearchResultsBox>
         <NomsBox>
           <NomHeader>
-          <SectionHeader>Nominations</SectionHeader>
-          {nominations.length >= 2 && (
-            <ClearAllButton onClick={clearNoms}>Clear All</ClearAllButton>
-          )}
-          {nominations.length == 5 && (
-            <SubmitNoms>Submit</SubmitNoms>
-          )}
+            <SectionHeader>Nominations</SectionHeader>
+            {nominations.length >= 2 && (
+              <ClearAllButton onClick={clearNoms}>Clear All</ClearAllButton>
+            )}
+            {nominations.length == 5 && <SubmitNoms>Submit</SubmitNoms>}
           </NomHeader>
           <NomResults id="nomResults">
             {renderNominations(nominations)}
