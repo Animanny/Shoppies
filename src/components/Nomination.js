@@ -12,8 +12,9 @@ const MovieResult = props => {
   const MovieResultDiv = styled.div`
     display: flex;
     align-items: flex-end;
+    width: 100%;
     height: 150px;
-    background-image: linear-gradient(#eb01a000, #000000de), url(${poster});
+    background-image: -webkit-linear-gradient(rgba(255,255,255,0), #000), url(${poster});
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -44,15 +45,11 @@ const MovieResult = props => {
   const RemoveButton = styled.button`
     background-color: #3e3e3e;
     border-radius: 5px;
+    font-weight: bold;
     color: white;
     border: none;
     width: 100px;
     height: 40px;
-  `
-
-  const MovieResultImg = styled.div`
-    /*border: white 10px solid;*/
-    height: 150px;
   `
 
   let nominateMovie = () => {

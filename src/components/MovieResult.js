@@ -15,6 +15,10 @@ const MovieResult = props => {
     height:450px;
     width: 200px;
     margin-right: 100px;
+
+    @media only screen and (max-width: 768px) {
+      margin-right:50px;
+    }
   `
 
   const MovieTitle = styled.h3`
@@ -40,6 +44,7 @@ const MovieResult = props => {
     border-radius: 5px;
     margin-bottom:0px;
     color: white;
+    font-weight: bold;
     border: none;
     width: 100px;
     height: 40px;
