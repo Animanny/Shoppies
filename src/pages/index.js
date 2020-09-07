@@ -241,7 +241,6 @@ const Home = () => {
   }, 250)
 
   let renderedSearchResults = searchResults => {
-    console.log(searchResults)
     if (searchResults != null) {
       return (
         <>
@@ -261,7 +260,6 @@ const Home = () => {
 
   let renderNominations = nominations => {
     if (nominations != null) {
-      console.log("boop", nominations)
       return (
         <>
           {nominations.map(movie => (
