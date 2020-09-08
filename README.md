@@ -1,99 +1,58 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.com">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+    <img alt="Gatsby" src="https://nominateshoppies.netlify.app/static/shoppiesLogo-26fe5c2e7c20d15cb32d7b34600b08d3.png" width="100" />
   </a>
 </p>
 <h1 align="center">
-  Gatsby's hello-world starter
+  Nominate Shoppies
 </h1>
+<h3 align="center">
+  Shopify Winter 2021 Developer Challenge
+</h3>
+<a href="https://nominateshoppies.netlify.app/">
+<img align="center" src="https://user-images.githubusercontent.com/14436239/92436343-70d82280-f172-11ea-8140-c3629abe31d7.png"></img>
+</a>
+<a href="https://nominateshoppies.netlify.app/"><p align="center">Demo Link</p></a>
 
-Kick off your project with this hello-world boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+## 🚀 Shopify Challenge
+Hello Shopify Team! Thank you for taking the time to take a look at my developer challenge. I'm really excited for the opportunity and I hope that we can work together in the future!
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
+### The Build
+This was a server-side rendered application to ensure snappy and quick interface response. 
 
-## 🚀 Quick start
+This application was built using:
+- [React](https://reactjs.org/) + [Gatsby](https://www.gatsbyjs.com/)
+ - Used to create re-useable, highly scalable components
+- [Styled Components](https://styled-components.com/)
+ - Used to create a consistent and reusable style and theme
 
-1.  **Create a Gatsby site.**
+### The Expectations
 
-    Use the Gatsby CLI to create a new site, specifying the hello-world starter.
+The list of functionality required by the challenge:
 
-    ```shell
-    # create a new Gatsby site using the hello-world starter
-    gatsby new my-hello-world-starter https://github.com/gatsbyjs/gatsby-starter-hello-world
-    ```
+- The user can search for a movie using the [debounced](https://github.com/Animanny/Shoppies/blob/master/src/pages/index.js#L239) search field. This will make search calls to the OMDB API
 
-1.  **Start developing.**
+- The list of search results will show each movie (poster, title, year) with a nominate button
 
-    Navigate into your new site’s directory and start it up.
+- Nominating the movie will add the movie's banner to the nomination pane with a remove button
 
-    ```shell
-    cd my-hello-world-starter/
-    gatsby develop
-    ```
+- Adding five movies will display a banner notifying that you're done and will disable the nominate button on any further movies and 
 
-1.  **Open the source code and start editing!**
+### Achievement Get!
 
-    Your site is now running at `http://localhost:8000`!
+Additional Functionality that makes the app slightly better to use:
+- The application will save your nominations to your browser allowing you to close and re-open the tab and have your nominations persist!
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.com/tutorial/part-five/#introducing-graphiql)._
+- 100 Accessibility Code
 
-    Open the `my-hello-world-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
-## 🧐 What's inside?
+### Next Steps
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+- I'm actively working on making shareable links using html2canvas to download an image of all the banners to be shared on twitter or instagram!
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
+## Thank you
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+Again I'd like to thank you for checking out my project. Feel free to hit me up with any questions at [hey@animanny.com](mailto:hey@animanny.com) or checkout my other work on [my portfolio](http://animanny.com/). Hope to see you during
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
-
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
-
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
-
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.com/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
-
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.com/docs/gatsby-config/) for more detail).
-
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
-
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
-
-9.  **`LICENSE`**: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
-
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
-
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-12. **`README.md`**: A text file containing useful reference information about your project.
-
-## 🎓 Learning Gatsby
-
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.com/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-hello-world)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/gatsbyjs/gatsby-starter-hello-world)
-
-<!-- AUTO-GENERATED-CONTENT:END -->
+<p align="center">
+    <img alt="Gatsby" src="https://upload.wikimedia.org/wikipedia/en/e/ed/The-internship-poster.jpg" width="200" /></p>
