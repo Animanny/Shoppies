@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { Helmet } from "react-helmet"
 import styled from "styled-components"
 import { debounce } from "lodash"
+import html2canvas from 'html2canvas'
 
 import MovieResult from "../components/MovieResult"
 import Nomination from "../components/Nomination"
@@ -10,12 +11,12 @@ import ShoppiesLogo from "../images/shoppiesLogo.png"
 
 const HeaderDiv = styled.div`
   padding-left: 100px;
-  background-color: #b48cff;
+  background-color: #7024ff;
   display: flex;
   height: 275px;
 
   @media only screen and (max-width: 768px) {
-    padding-left: 25px;
+    padding-left: 10%;
   }
 `
 const HeaderImg = styled.img`
@@ -36,6 +37,15 @@ const HeaderContent = styled.div`
   }
 `
 
+const SearchLabel = styled.label`
+  color: white;
+  font-family: "Lato", sans-serif;
+  display: block;
+  font-size: 20px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+`
+
 const SearchField = styled.input`
   border: white solid 2px;
   border-radius: 20px;
@@ -43,7 +53,7 @@ const SearchField = styled.input`
   width: 500px;
   font-size: 25px;
   padding-left: 10px;
-  background-color: #b48cff;
+  background-color: #7024ff;
   color: white;
   font-family: "Lato", sans-serif;
 
@@ -129,11 +139,11 @@ const NomResults = styled.div`
 `
 
 const ClearAllButton = styled.button`
-  background-color: #b48cff;
+  background-color: #7024ff;
   border-radius: 5px;
   color: white;
   border: none;
-  min-width:65px;
+  min-width: 65px;
   width: 90%;
   font-weight: bold;
   margin-left: 5%;
@@ -172,12 +182,6 @@ const NoMovies = styled.h1`
   color: #4a4a4a;
   font-family: "Lato", sans-serif;
 `
-
-const Break = styled.div`
-  flex-basis: 100%;
-  height: 0;
-`
-
 const ShoppiesHeader = styled.h1`
   color: white;
   font-family: "Lato", sans-serif;
@@ -254,7 +258,14 @@ const Home = () => {
         </>
       )
     } else {
-      return <NoMovies>Couldn't find that movie <span role="img" aria-label="sad face emoji">😞</span></NoMovies>
+      return (
+        <NoMovies>
+          Couldn't find that movie{" "}
+          <span role="img" aria-label="sad face emoji">
+            😞
+          </span>
+        </NoMovies>
+      )
     }
   }
 
@@ -278,18 +289,25 @@ const Home = () => {
     setNominations([])
   }
 
+  let shareNoms = () => {
+    html2canvas(document.querySelector("NomResults")).then((canvas) =>{
+      document.body.appendChild(canvas)
+    })
+  }
+
   return (
     <div>
       <Helmet>
+        <html lang="en" />
         <meta charSet="utf-8" />
         <title>Nominate Shoppies</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
       <HeaderDiv>
-        <HeaderImg src={ShoppiesLogo}></HeaderImg>
+        <HeaderImg src={ShoppiesLogo} alt={"Gold Shopify Logo"}></HeaderImg>
         <HeaderContent>
           <ShoppiesHeader>The Shoppies</ShoppiesHeader>
-          <Break></Break>
+          <SearchLabel for={"movieSearchField"}>Movie Title</SearchLabel>
           <SearchField
             placeholder="The Dark Knight"
             type="text"
@@ -305,9 +323,12 @@ const Home = () => {
             {nominations.length === 5 && (
               <>
                 <FiveNomsDoneMessage>
-                  You've nominated 5 movies! <span role="img" aria-label="party confetti emoji">🎉</span>
+                  You've nominated 5 movies!{" "}
+                  <span role="img" aria-label="party confetti emoji">
+                    🎉
+                  </span>
                 </FiveNomsDoneMessage>
-                <CloseFiveNomsNotif>Share</CloseFiveNomsNotif>
+                <CloseFiveNomsNotif onClick={shareNoms}>Share</CloseFiveNomsNotif>
               </>
             )}
           </SearchResultsHeader>

@@ -42,7 +42,7 @@ const MovieYear = styled.h4`
 `
 
 const NominateButton = styled.button`
-  background-color: #b48cff;
+  background-color: #7024ff;
   border-radius: 5px;
   margin-bottom: 0px;
   color: white;
