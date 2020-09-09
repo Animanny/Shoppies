@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { Helmet } from "react-helmet"
 import styled from "styled-components"
 import { debounce } from "lodash"
-import html2canvas from 'html2canvas'
+import html2canvas from "html2canvas"
 
 import MovieResult from "../components/MovieResult"
 import Nomination from "../components/Nomination"
@@ -69,7 +69,7 @@ const SearchField = styled.input`
   }
 `
 
-const AllStuff = styled.div`
+const MainContentContainer = styled.div`
   display: flex;
   margin-bottom: 50px;
   @media only screen and (max-width: 768px) {
@@ -168,7 +168,7 @@ const FiveNomsDoneMessage = styled.h3`
   }
 `
 
-const CloseFiveNomsNotif = styled.button`
+const ShareButton = styled.button`
   height: 37px;
   min-width: 65px;
   color: white;
@@ -289,10 +289,19 @@ const Home = () => {
     setNominations([])
   }
 
-  let shareNoms = () => {
-    html2canvas(document.querySelector("NomResults")).then((canvas) =>{
-      document.body.appendChild(canvas)
+  let shareNoms = nominations => {
+    let baseLink = "https://twitter.com/intent/tweet?text="
+    let noms = ""
+
+    noms +=
+      "I just nominated my films for The Shoppies '21! Checkout my list:%0A%0A"
+
+    nominations.map(nom => {
+      noms += "- " + nom.Title + " (" + nom.Year + ")%0A"
     })
+
+    noms += "%0ANominate your favs @&url=nominateshoppies.netlify.app"
+    return baseLink + noms
   }
 
   return (
@@ -301,7 +310,7 @@ const Home = () => {
         <html lang="en" />
         <meta charSet="utf-8" />
         <title>Nominate Shoppies</title>
-        <link rel="canonical" href="http://mysite.com/example" />
+        <link rel="canonical" href="https://nominateshoppies.netlify.app/" />
       </Helmet>
       <HeaderDiv>
         <HeaderImg src={ShoppiesLogo} alt={"Gold Shopify Logo"}></HeaderImg>
@@ -316,7 +325,7 @@ const Home = () => {
           ></SearchField>
         </HeaderContent>
       </HeaderDiv>
-      <AllStuff>
+      <MainContentContainer>
         <SearchResultsBox>
           <SearchResultsHeader>
             <SectionTitle>Search Results</SectionTitle>
@@ -328,7 +337,9 @@ const Home = () => {
                     🎉
                   </span>
                 </FiveNomsDoneMessage>
-                <CloseFiveNomsNotif onClick={shareNoms}>Share</CloseFiveNomsNotif>
+                <a href={shareNoms(nominations)} target={"_blank"}>
+                  <ShareButton type={"submit"}>Share</ShareButton>
+                </a>
               </>
             )}
           </SearchResultsHeader>
@@ -347,7 +358,7 @@ const Home = () => {
             {renderNominations(nominations)}
           </NomResults>
         </NomsBox>
-      </AllStuff>
+      </MainContentContainer>
     </div>
   )
 }

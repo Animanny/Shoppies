@@ -19,7 +19,7 @@ width: 80%;
 `
 
 const MovieTitle = styled.h3`
-display: -webkit-box;
+display: relative;
 -webkit-line-clamp: 1;
 -webkit-box-orient: vertical;
 overflow: hidden;
@@ -67,11 +67,11 @@ const MovieResult = props => {
 
   return (
     <>
-      <MovieResultDiv poster={poster}>
+      <MovieResultDiv poster={poster} crossOrigin={"Anonymous"}>
         <MovieInfoDiv>
           <MovieTitle>{title}</MovieTitle>
           <MovieYear>{year}</MovieYear>
-          <RemoveButton onClick={nominateMovie}>Remove</RemoveButton>
+          <RemoveButton onClick={nominateMovie} data-html2canvas-ignore={"true"}>Remove</RemoveButton>
         </MovieInfoDiv>
       </MovieResultDiv>
     </>

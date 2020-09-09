@@ -43,12 +43,17 @@ The list of functionality required by the challenge:
 Additional Functionality that makes the app slightly better to use:
 - The application will save your nominations to your browser allowing you to close and re-open the tab and have your nominations persist!
 
+- A share button that redirects the user to Twitter along with a draft of their tweet containing all their nominated films
+ - ![image](https://user-images.githubusercontent.com/14436239/92556449-05588880-f238-11ea-90e1-82e6a3490394.png)
+
+
 - 100 Accessibility Code
 
 
 ### Next Steps
 
-- I'm actively working on making shareable links using html2canvas to download an image of all the banners to be shared on twitter or instagram!
+- I didn't have time to learn how to use animations for this project but I'd love to be able to implement some flashy, celebratory animations to the site 
+
 
 ## Thank you
 
