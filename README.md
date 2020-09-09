@@ -44,7 +44,7 @@ Additional Functionality that makes the app slightly better to use:
 - The application will save your nominations to your browser allowing you to close and re-open the tab and have your nominations persist!
 
 - A share button that redirects the user to Twitter along with a draft of their tweet containing all their nominated films
- - ![image](https://user-images.githubusercontent.com/14436239/92556449-05588880-f238-11ea-90e1-82e6a3490394.png)
+  - ![image](https://user-images.githubusercontent.com/14436239/92556449-05588880-f238-11ea-90e1-82e6a3490394.png)
 
 
 - 100 Accessibility Code
